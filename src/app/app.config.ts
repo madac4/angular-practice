@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, NgModule, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { LucideAngularModule, Loader2, Eye, EyeOff, LogOut, Heart, Pencil, UserPlus, Trash } from 'lucide-angular';
@@ -13,7 +13,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     importProvidersFrom(
       LucideAngularModule.pick({ Loader2, Eye, EyeOff, LogOut, Heart, Pencil, UserPlus, Trash }),
-      HttpClientModule
+      HttpClientModule,
+      NgModule
     ),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideRouter(routes),

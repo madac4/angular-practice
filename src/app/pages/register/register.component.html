@@ -3,6 +3,7 @@
     <img alt="logo" loading="lazy" class="mx-auto mb-2 w-16 h-16 rounded-full" src="https://gravatar.com/avatar" />
     <h3 class="font-semibold leading-none tracking-tight text-center">Bine ai venit!</h3>
     <p class="text-sm text-muted-foreground text-center">Introduce email-ul și parola pentru a crea un cont nou!</p>
+    <strong class="text-sm text-red-600 text-center">View Only (not fucntional)</strong>
   </div>
 
   <div class="p-6 pt-0">
@@ -20,6 +21,7 @@
           placeholder="example@gmai.com"
           type="email"
           name="email"
+          disabled
           id="email"
         />
       </div>
@@ -36,6 +38,7 @@
             placeholder="••••••••••••"
             type="password"
             name="password"
+            disabled
             id="password"
           />
           <svg
@@ -70,6 +73,7 @@
             type="password"
             name="confirm-password"
             id="confirm-password"
+            disabled
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,9 +94,9 @@
       </div>
 
       <div class="flex items-center justify-end">
-        <a class="text-sm font-semibold hover:underline my-2" routerLink="">Ai deja un cont?</a>
+        <a class="text-sm font-semibold hover:underline my-2" routerLink="/login">Ai deja un cont?</a>
       </div>
-      <button class="button button__primary" type="submit">Crează contul</button>
+      <button class="button button__primary" type="submit" disabled>Crează contul</button>
     </form>
   </div>
 </div>

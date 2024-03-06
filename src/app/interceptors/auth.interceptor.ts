@@ -1,7 +1,8 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, catchError, switchMap, tap } from 'rxjs';
+import { IFullUser, ILoginUser } from '../types/auth.types';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -9,9 +10,11 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    const user = this.authService.user();
 
-    if (!token) {
-      this.authService.logout();
+    if (!token || !role) {
+      // this.authService.logout();
       return next.handle(req);
     }
 

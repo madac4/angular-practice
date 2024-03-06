@@ -8,7 +8,7 @@ export function authGuard(): CanActivateFn {
     const router: Router = inject(Router);
 
     if (!authService.loggedIn()) {
-      router.navigate(['/auth']);
+      router.navigate(['/login']);
       return false;
     }
 
@@ -22,7 +22,7 @@ export function adminGuard(): CanActivateFn {
     const router: Router = inject(Router);
 
     if (!authService.isAdmin()) {
-      //   router.navigate(['/']);
+      router.navigate(['/']);
       return false;
     }
 

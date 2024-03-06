@@ -24,6 +24,14 @@ export class AuthService {
     return this.http.post<ILoginUser>(`${API_URL}/auth/login`, { username, password });
   }
 
+  reAuth(role: string): Observable<ILoginUser> {
+    if (role === 'admin') {
+      return this.login('atuny0', '9uQFF1Lh');
+    } else {
+      return this.login('kminchelle', '0lelplR');
+    }
+  }
+
   logout() {
     this.loggedIn.set(false);
     this.user.set(null);

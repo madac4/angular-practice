@@ -4,95 +4,28 @@
   </div>
 
   <div class="grid grid-cols-5 gap-5 mb-20">
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
+    @for (product of products; track product.id) {
+    <article class="group relative">
+      <div
+        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+      >
+        <img
+          [src]="product.thumbnail"
+          [alt]="product.title"
+          class="h-full w-full object-cover object-center lg:h-full lg:w-full object-[50%,40%]"
+        />
+      </div>
+      <div class="mt-4 flex justify-between">
+        <div>
+          <h3 class="text-sm text-gray-700">
+            <span aria-hidden="true" class="absolute inset-0"></span>
+            {{ product.title }}
+          </h3>
+          <p class="mt-1 text-sm text-gray-500">Black</p>
+        </div>
+        <p class="text-sm font-medium text-gray-900">{{ product.price | price }}</p>
       </div>
     </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
-    <article class="text-lg border rounded-lg p-4">
-      <span class="bg-gray-500 h-[240px] w-full block mb-3"> </span>
-      <a href="#">Product name</a>
-
-      <div class="flex gap-3 mt-4">
-        <button class="w-full button button__primary">Īn coș</button>
-        <button class="w-full button button__primary">La favorite</button>
-      </div>
-    </article>
+    }
   </div>
 </section>

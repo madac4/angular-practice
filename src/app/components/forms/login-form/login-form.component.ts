@@ -50,7 +50,7 @@ export class LoginFormComponent implements OnInit {
             this.status.success(`${response.firstName} Te-ai logat cu success`);
             this.authService.loggedIn.set(true);
             this.authService.isAdmin.set(role === 'admin');
-            this.router.navigate(['/home']);
+            this.router.navigate(['/']);
             return this.authService.me();
           }),
           catchError((error) => {

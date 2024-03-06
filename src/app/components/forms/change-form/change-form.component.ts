@@ -6,11 +6,12 @@ import { UserService } from '../../../service/user.service';
 import { catchError, finalize, switchMap } from 'rxjs';
 import { IFullUser } from '../../../types/auth.types';
 import { StatusService } from '../../../service/status.service';
+import { MaskModule } from '../../../directive/mask.module';
 
 @Component({
   selector: 'app-change-form',
   standalone: true,
-  imports: [ReactiveFormsModule, LucideAngularModule],
+  imports: [ReactiveFormsModule, LucideAngularModule, MaskModule],
   templateUrl: './change-form.component.html',
 })
 export class ChangeFormComponent implements OnInit {
