@@ -1,0 +1,65 @@
+<app-table (searchQuery)="searchUser($event)" [isLoading]="userService.isLoading()">
+  <tr class="border-b">
+    @for (name of tableColumns; track name) {
+    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground">{{ name }}</th>
+    }
+  </tr>
+  @for (user of tableData | search: searchQuery; track user.id) {
+  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+    <td class="p-4 align-middle">{{ user.id }}</td>
+    <td class="p-4 align-middle">{{ user.firstName }} {{ user.lastName }}</td>
+    <td class="p-4 align-middle">{{ user.email }}</td>
+    <td class="p-4 align-middle">{{ user.phone }}</td>
+    <td class="p-4 align-middle">{{ user.address.address }}, {{ user.address.city }}</td>
+    <td class="p-4 align-middle">{{ user.age }}</td>
+    <td class="p-4 align-middle">{{ user.gender }}</td>
+    <td class="p-4 align-middle">{{ user.username }}</td>
+
+    <td class="p-4 align-middle">
+      <button
+        (click)="removeUser(user.id)"
+        class="button button__icon border w-10 h-10 ring-red-300 hover:bg-gray-300/20"
+      >
+        <lucide-icon name="trash" size="18" class="text-red-500"></lucide-icon>
+      </button>
+    </td>
+  </tr>
+  } @if (tableData.length === 0) {
+  <tr class="border-b">
+    <td class="p-6 align-middle text-center" colspan="8">Nu există date</td>
+  </tr>
+  }
+
+  <div pagination class="flex items-center justify-end space-x-2 p-4">
+    <button
+      class="button button__outline text-sm"
+      [disabled]="pagination.skip === 0"
+      (click)="handlePagination('prev')"
+    >
+      Înapoi
+    </button>
+    @for (page of pagination.totalPages; track page) {
+    <button
+      class="button button__outline text-sm"
+      [ngClass]="
+        (pagination.skip + pagination.limit) / 10 === page
+          ? 'bg-blue-300/20 hover:bg-blue-300/20 pointer-events-none'
+          : ''
+      "
+      (click)="handlePagination('', page)"
+    >
+      {{ page }}
+    </button>
+    }
+
+    <button
+      class="button button__outline text-sm"
+      [disabled]="
+        tableData.length === 0 || pagination.skip / 10 + 1 === pagination.totalPages[pagination.totalPages.length - 1]
+      "
+      (click)="handlePagination('next')"
+    >
+      Îniante
+    </button>
+  </div>
+</app-table>

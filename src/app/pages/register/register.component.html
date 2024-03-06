@@ -1,0 +1,98 @@
+<div class="rounded-xl border bg-card text-card-foreground shadow max-w-[450px] w-full mx-auto mt-20">
+  <div class="flex flex-col space-y-1.5 p-6">
+    <img alt="logo" loading="lazy" class="mx-auto mb-2 w-16 h-16 rounded-full" src="https://gravatar.com/avatar" />
+    <h3 class="font-semibold leading-none tracking-tight text-center">Bine ai venit!</h3>
+    <p class="text-sm text-muted-foreground text-center">Introduce email-ul și parola pentru a crea un cont nou!</p>
+  </div>
+
+  <div class="p-6 pt-0">
+    <form method="post" class="flex flex-col gap-5">
+      <div class="space-y-0">
+        <label
+          for="email"
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Email
+        </label>
+        <input
+          class="flex h-12 w-full rounded-md border border-input bg-transparent px-3 py-1 text-md shadow-sm transition-colors file:border-0 file:bg-transparent file:text-md file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+          autocomplete="username"
+          placeholder="example@gmai.com"
+          type="email"
+          name="email"
+          id="email"
+        />
+      </div>
+      <div class="space-y-0">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="password"
+        >
+          Parola
+        </label>
+        <div class="relative">
+          <input
+            class="flex h-12 w-full rounded-md border border-input bg-transparent px-3 py-1 text-md shadow-sm transition-colors file:border-0 file:bg-transparent file:text-md file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 tracking-widest"
+            placeholder="••••••••••••"
+            type="password"
+            name="password"
+            id="password"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-eye cursor-pointer absolute top-1/2 -translate-y-1/2 right-3 text-gray-300"
+          >
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </div>
+      </div>
+
+      <div class="space-y-0">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="confirm-password"
+        >
+          Confirmă Parola
+        </label>
+        <div class="relative">
+          <input
+            class="flex h-12 w-full rounded-md border border-input bg-transparent px-3 py-1 text-md shadow-sm transition-colors file:border-0 file:bg-transparent file:text-md file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 tracking-widest"
+            placeholder="••••••••••••"
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-eye cursor-pointer absolute top-1/2 -translate-y-1/2 right-3 text-gray-300"
+          >
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end">
+        <a class="text-sm font-semibold hover:underline my-2" routerLink="">Ai deja un cont?</a>
+      </div>
+      <button class="button button__primary" type="submit">Crează contul</button>
+    </form>
+  </div>
+</div>

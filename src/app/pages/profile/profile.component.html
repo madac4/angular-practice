@@ -1,0 +1,107 @@
+<div class="rounded-xl border bg-card text-card-foreground shadow max-w-[580px] w-full mx-auto my-20">
+  @if (authService.isLoading()) {
+  <div class="flex flex-col space-y-1.5 p-6">
+    <app-skeleton classNames="mb-4 w-64 h-7 mb-4 mx-auto" />
+    <app-skeleton classNames="mb-2 w-20 h-20 !rounded-full mx-auto" />
+  </div>
+
+  <div class="p-6 pt-0">
+    <app-skeleton classNames="w-40 h-5 mb-5" />
+    <div class="grid grid-cols-2 gap-3">
+      <div class="flex flex-col">
+        <app-skeleton classNames="mb-3 w-32 h-4 mb-1" />
+        <app-skeleton classNames="mb-3 w-full h-12" />
+      </div>
+      <div class="flex flex-col">
+        <app-skeleton classNames="mb-3 w-32 h-4 mb-1" />
+        <app-skeleton classNames="mb-3 w-full h-12" />
+      </div>
+      <div class="flex flex-col">
+        <app-skeleton classNames="mb-3 w-32 h-4 mb-1" />
+        <app-skeleton classNames="mb-3 w-full h-12" />
+      </div>
+      <div class="flex flex-col">
+        <app-skeleton classNames="mb-3 w-32 h-4 mb-1" />
+        <app-skeleton classNames="mb-3 w-full h-12" />
+      </div>
+      <div class="flex flex-col">
+        <app-skeleton classNames="mb-3 w-32 h-4 mb-1" />
+        <app-skeleton classNames="mb-3 w-full h-12" />
+      </div>
+      <div class="flex flex-col">
+        <app-skeleton classNames="mb-3 w-32 h-4 mb-1" />
+        <app-skeleton classNames="mb-3 w-full h-12" />
+      </div>
+      <div class="col-span-2">
+        <app-skeleton classNames="mb-3 w-full h-10" />
+      </div>
+    </div>
+  </div>
+  }@else{
+  <div class="flex flex-col space-y-1.5 p-6">
+    <h3 class="font-semibold leading-none tracking-tight text-xl mb-4 text-center">
+      Salut {{ authService.user()?.firstName }}, Bine ai venit!
+    </h3>
+
+    @if (this.userService.isLoading()) {
+    <app-skeleton classNames="mb-2 w-20 h-20 !rounded-full mx-auto" />
+    }@else {
+    <div class="relative w-fit mx-auto">
+      <img alt="logo" loading="lazy" class="mb-2 w-20 h-20 rounded-full" [src]="this.authService.user()!.image" />
+      <div class="absolute bottom-1 -right-1 w-fit cursor-pointer group">
+        <input (input)="updateAvatar($event)" type="file" class="absolute opacity-0 w-full h-full" />
+        <button
+          class="rounded-full bg-blue-500 text-white p-2 flex items-center justify-center group-hover:bg-blue-600"
+        >
+          <lucide-icon name="pencil" size="14" />
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="p-6 pt-0">
+    <h4 class="font-medium mb-3">General information:</h4>
+    <app-change-form />
+  </div>
+
+  <div class="p-6">
+    <h4 class="text-lg mb-4 font-semibold">Informația profilului:</h4>
+
+    <span class="flex items-center gap-3">
+      Username:
+      <pre class="text-sm">{{ this.authService.user()?.username }}</pre>
+    </span>
+
+    <span class="flex items-center gap-3">
+      First Name:
+      <pre class="text-sm">{{ this.authService.user()?.firstName }}</pre>
+    </span>
+
+    <span class="flex items-center gap-3">
+      Last Name:
+      <pre class="text-sm">{{ this.authService.user()?.lastName }}</pre>
+    </span>
+
+    <span class="flex items-center gap-3">
+      Phone Number:
+      <pre class="text-sm">{{ this.authService.user()?.phone }}</pre>
+    </span>
+
+    <span class="flex items-center gap-3">
+      Email:
+      <pre class="text-sm">{{ this.authService.user()?.email }}</pre>
+    </span>
+
+    <span class="flex items-center gap-3">
+      Role:
+      <pre class="text-sm">{{ this.authService.user()?.gender }}</pre>
+    </span>
+
+    <span class="flex items-center gap-3">
+      Password:
+      <pre class="text-sm">{{ this.authService.user()?.password }}</pre>
+    </span>
+  </div>
+  }
+</div>

@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Onest';
+    src: url('assets/fonts/Onest.ttf') format('truetype');
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Onest', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    app-footer {
+      margin-top: auto;
+    }
+  }
+}
+
+@layer components {
+  .button {
+    @apply inline-flex gap-2 items-center justify-center whitespace-nowrap px-4 py-2 focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-2 rounded-md text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none;
+    &__primary {
+      @apply bg-blue-500  text-white hover:bg-blue-600;
+    }
+    &__destructive {
+      @apply bg-red-600 text-white hover:bg-red-700 ring-red-700;
+    }
+    &__icon {
+      @apply bg-white text-gray-800 hover:bg-white/60 h-12 w-12;
+    }
+    &__outline {
+      @apply border bg-transparent hover:bg-gray-300/20 ring-gray-200;
+    }
+  }
+
+  .input {
+    @apply flex h-12 w-full rounded-md border bg-transparent px-3 py-1 text-md shadow-sm transition-colors placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none;
+  }
+}

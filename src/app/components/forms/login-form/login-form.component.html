@@ -1,0 +1,70 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="authData" method="post" class="flex flex-col gap-5">
+  <div class="space-y-0">
+    <label
+      for="username"
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    >
+      Username
+    </label>
+    <input
+      class="input"
+      autocomplete="username"
+      formControlName="username"
+      placeholder="john.doe"
+      required
+      type="text"
+      id="username"
+    />
+    @if (authData.controls['username'].invalid && (authData.controls['username'].touched ||
+    authData.controls['username'].dirty)) {
+    <app-form-error [control]="authData.controls['username']" />
+    }
+  </div>
+  <div class="space-y-0">
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for="password"
+    >
+      Parola
+    </label>
+    <div class="relative">
+      <input
+        class="input"
+        autocomplete="current-password"
+        placeholder="••••••••••••"
+        required
+        [type]="showPassword() ? 'text' : 'password'"
+        formControlName="password"
+        id="password"
+      />
+      @if (showPassword()) {
+      <lucide-icon
+        (click)="showPassword.set(false)"
+        class="cursor-pointer absolute top-1/2 -translate-y-1/2 right-2 text-gray-200"
+        name="eye-off"
+      />
+      }@else{
+      <lucide-icon
+        (click)="showPassword.set(true)"
+        class="cursor-pointer absolute top-1/2 -translate-y-1/2 right-2 text-gray-300"
+        name="eye"
+      />
+      }
+    </div>
+
+    @if (authData.controls['password'].invalid && (authData.controls['password'].touched ||
+    authData.controls['password'].dirty)) {
+    <app-form-error [control]="authData.controls['password']" />
+    }
+  </div>
+
+  <div class="flex items-center justify-end">
+    <a class="text-sm font-semibold hover:underline my-2" routerLink="/register">Crează un cont nou!</a>
+  </div>
+
+  <button [disabled]="authService.isLoading()" class="button button__primary" type="submit">
+    @if (authService.isLoading()) {
+    <lucide-icon class="w-5 animate-spin" name="loader2" />
+    } Autentificare
+  </button>
+</form>

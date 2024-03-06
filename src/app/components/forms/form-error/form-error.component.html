@@ -1,0 +1,6 @@
+<div class="error">
+  <small *ngIf="control.hasError('required')" class="text-red-500 mt-2"> Acest câmp este obligatoriu </small>
+  <small *ngIf="control.hasError('minlength')" class="text-red-500 mt-2">
+    Acest câmp trebuie să conțină minim 6 caractere
+  </small>
+</div>

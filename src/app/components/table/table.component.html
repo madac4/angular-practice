@@ -1,0 +1,33 @@
+<div class="full-table mb-20">
+  @if (isLoading) {
+  <div class="flex items-center justify-between py-4 gap-4">
+    <app-skeleton classNames="h-12 w-96" />
+  </div>
+
+  <app-skeleton classNames="rounded-md w-full h-[420px]" />
+  }@else {
+  <div class="flex items-center py-4 gap-4">
+    <input
+      class="flex h-10 w-full rounded-md border border-input bg-background px-4 py-6 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-black disabled:cursor-not-allowed disabled:opacity-50 max-w-sm mr-auto"
+      placeholder="Caută după username"
+      (input)="searchQuery.emit($event)"
+    />
+  </div>
+
+  <div class="rounded-md border">
+    <div class="relative w-full overflow-auto">
+      <table class="w-full caption-bottom text-sm min-w-[760px] whitespace-nowrap">
+        <thead>
+          <ng-content select="[head]"></ng-content>
+        </thead>
+
+        <tbody>
+          <ng-content></ng-content>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-content select="[pagination]"></ng-content>
+  </div>
+  }
+</div>
